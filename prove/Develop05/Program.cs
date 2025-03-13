@@ -86,6 +86,7 @@ class Program
 
     static void RecordEvent(GoalManager goalManager)
     {
+        goalManager.DisplayGoals();
         Console.Write("Enter goal name: ");
         string name = Console.ReadLine();
         goalManager.RecordEvent(name);

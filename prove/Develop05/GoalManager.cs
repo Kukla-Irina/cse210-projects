@@ -16,14 +16,15 @@ public class GoalManager
 
     public void RecordEvent(string goalName)
     {
-        foreach (var goal in _goals)
+       Goal goal = _goals.FirstOrDefault(g => g.GetName() == goalName);
+        if (goal == null)
         {
-            if (goal.GetName() == goalName)
-            {
-                _score += goal.RecordEvent();
-                break;
-            }
+            Console.WriteLine($"Goal with name '{goalName}' does not exist.");
+            return;
         }
+
+        _score += goal.RecordEvent();
+        Console.WriteLine($"Event recorded for goal: {goal.GetName()}");
     }
 
     public void DisplayScore()
@@ -33,6 +34,7 @@ public class GoalManager
 
     public void DisplayGoals()
     {
+        Console.WriteLine("");
         Console.WriteLine("The goals are: ");
         foreach (var goal in _goals)
         {
