@@ -1,8 +1,8 @@
 public class ChecklistGoal : Goal
 {
-    private int _target { get; set; }
-    private int _current { get; set; }
-    private int _bonus { get; set; }
+    protected int _target;
+    protected int _current;
+    protected int _bonus;
 
     public ChecklistGoal(string name, string description, int points, int target, int bonus)
         : base(name, description, points)
