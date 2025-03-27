@@ -11,7 +11,7 @@ class Program
         Customer customer2 = new Customer("Irina Evsikova", address2);
 
         Product product1 = new Product("Laptop", "P1001", 999.99, 1);
-        Product product2 = new Product("Mouse", "P1002", 19.99, 2);
+        Product product2 = new Product("Mouse", "P1002", 19.99, 1);
         Product product3 = new Product("Keyboard", "P1003", 49.99, 1);
 
         Order order1 = new Order(customer1);
