@@ -22,16 +22,7 @@ class Program
 
         foreach (var video in videos)
         {
-            Console.WriteLine($"Title: {video._title}");
-            Console.WriteLine($"Author: {video._author}");
-            Console.WriteLine($"Length: {video._length} seconds");
-            Console.WriteLine($"Number of Comments: {video.GetNumberOfComments()}");
-            Console.WriteLine("Comments:");
-            foreach (var comment in video._comments)
-            {
-                Console.WriteLine($" - {comment._commenterName}: {comment._commentText}");
-            }
-            Console.WriteLine();
+            video.DisplayInfo();
         }
     }
 }

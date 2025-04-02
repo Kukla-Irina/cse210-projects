@@ -3,7 +3,7 @@ class Video
     public string _title;
     public string _author;
     public int _length;
-    public List<Comment> _comments;
+    private List<Comment> _comments;
 
     public Video(string title, string author, int length)
     {
@@ -21,5 +21,18 @@ class Video
     public int GetNumberOfComments()
     {
         return _comments.Count;
+    }
+
+    public void DisplayInfo() {
+        Console.WriteLine($"Title: {_title}");
+            Console.WriteLine($"Author: {_author}");
+            Console.WriteLine($"Length: {_length} seconds");
+            Console.WriteLine($"Number of Comments: {GetNumberOfComments()}");
+            Console.WriteLine("Comments:");
+            foreach (var comment in _comments)
+            {
+                Console.WriteLine($" - {comment._commenterName}: {comment._commentText}");
+            }
+            Console.WriteLine();
     }
 }
