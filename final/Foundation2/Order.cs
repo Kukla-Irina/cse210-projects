@@ -1,4 +1,4 @@
-class Order
+public class Order
 {
     private List<Product> _products = new();
     private Customer _customer;

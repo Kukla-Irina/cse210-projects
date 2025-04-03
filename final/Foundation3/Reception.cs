@@ -1,4 +1,4 @@
-class Reception : Event
+public class Reception : Event
 {
     private string _rsvpEmail;
 
