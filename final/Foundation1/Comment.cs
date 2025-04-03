@@ -5,7 +5,12 @@ class Comment
 
     public Comment(string commenterName, string commentText)
     {
-        this._commenterName = commenterName;
-        this._commentText = commentText;
+        _commenterName = commenterName;
+        _commentText = commentText;
+    }
+
+    public string GetComment()
+    {
+        return $"{_commenterName}: {_commentText}";
     }
 }

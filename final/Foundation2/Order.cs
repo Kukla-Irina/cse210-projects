@@ -1,12 +1,11 @@
 class Order
 {
-    private List<Product> _products;
+    private List<Product> _products = new();
     private Customer _customer;
 
     public Order(Customer customer)
     {
-        this._customer = customer;
-        this._products = new List<Product>();
+        _customer = customer;
     }
 
     public void AddProduct(Product product)
@@ -18,7 +17,7 @@ class Order
 {
     double totalCost = 0;
 
-    foreach (var product in _products)
+    foreach (Product product in _products)
     {
         totalCost += product.CalculateTotalCost();
     }
@@ -35,18 +34,19 @@ class Order
     return totalCost;
 }
 
-    public string GetPackingLabel()
+    public void GetPackingLabel()
     {
-        string label = "Packing Label:\n";
-        foreach (var product in _products)
+        Console.WriteLine($"Packaging Label for {_customer.GetName()}:");
+        int counter = 1;
+        foreach (Product product in _products)
         {
-            label += $"{product.GetName()} (ID: {product.GetProductId()})\n";
+            Console.WriteLine($"{counter}. {product.GetName()} (ID: {product.GetProductId()}) - Price p/unit: ${product.GetPricePerUnit()} - Quantity: {product.GetQuantity()}");
+            counter++;
         }
-        return label;
     }
 
-    public string GetShippingLabel()
+    public void GetShippingLabel()
     {
-        return $"Shipping Label:\n{_customer.GetName()}\n{_customer.GetAddress().GetFullAddress()}";
+        Console.WriteLine($"Shipping Label: {_customer.GetName()} - {_customer.GetAddress().GetFullAddress()}");
     }
 }

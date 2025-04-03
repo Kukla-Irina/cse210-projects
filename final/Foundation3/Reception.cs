@@ -2,14 +2,19 @@ class Reception : Event
 {
     private string _rsvpEmail;
 
-    public Reception(string title, string description, string date, string time, Address address, string rsvpEmail)
-        : base(title, description, date, time, address)
+    public Reception(string type, string title, string description, string date, string time, Address address, string rsvpEmail)
+        : base(type, title, description, date, time, address)
     {
-        this._rsvpEmail = rsvpEmail;
+        _rsvpEmail = rsvpEmail;
     }
 
-    public string GetFullDetails()
+    public void GetFullDetails()
     {
-        return $"{base.GetStandardDetails()}\nType: Reception\nRSVP Email: {_rsvpEmail}";
+        Console.WriteLine($"Title: {_title}");
+        Console.WriteLine($"Description: {_description}");
+        Console.WriteLine($"Date: {_date}");
+        Console.WriteLine($"Time: {_time}");
+        Console.WriteLine($"Adress: {_address.GetFullAddress()}");
+        Console.WriteLine($"Email: ({_rsvpEmail})");
     }
 }

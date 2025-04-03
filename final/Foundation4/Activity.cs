@@ -1,35 +1,24 @@
-class Activity
+public abstract class Activity
 {
     private string _date;
-    private int _lengthInMinutes;
+    private double _lengthInMinutes;
 
-    public Activity(string date, int lengthInMinutes)
+    public Activity(double lengthInMinutes)
     {
-        this._date = date;
-        this._lengthInMinutes = lengthInMinutes;
+         _date = DateTime.Now.ToShortDateString();
+        _lengthInMinutes = lengthInMinutes;
     }
 
-    public int GetLenthInMinutes() {
+    public abstract double GetDistance();
+    public abstract double GetSpeed();
+    public abstract double GetPace();
+
+    public double GetTime() 
+    {
         return _lengthInMinutes;
     }
-    
-    public virtual double GetDistance()
-    {
-        return 0; 
-    }
-
-    public virtual double GetSpeed()
-    {
-        return (GetDistance() / _lengthInMinutes) * 60;
-    }
-
-    public virtual double GetPace()
-    {
-        return _lengthInMinutes / GetDistance();
-    }
-
     public virtual string GetSummary()
     {
-        return $"{_date} {GetType().Name} ({_lengthInMinutes} min): Distance {GetDistance():F1} km, Speed {GetSpeed():F1} kph, Pace {GetPace():F1} min per km";
+        return $"{_date} {GetType()} ({_lengthInMinutes} min): Distance {GetDistance():F1} km, Speed {GetSpeed():F1} kph, Pace {GetPace():F1} min per km";
     }
 }

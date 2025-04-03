@@ -1,15 +1,24 @@
-class Running : Activity
+public class Running : Activity
 {
-    private double _distance;
+    private double _speed;
 
-    public Running(string date, int lengthInMinutes, double distance)
-        : base(date, lengthInMinutes)
+    public Running(double lengthInMinutes, double speed) : base(lengthInMinutes)
     {
-        this._distance = distance;
+        _speed = speed;
     }
 
     public override double GetDistance()
     {
-        return _distance;
+       return GetSpeed() * (GetTime() / 60);
+    }
+
+    public override double GetSpeed()
+    {
+        return _speed;
+    }
+
+    public override double GetPace()
+    {
+        return GetTime() / GetDistance();
     }
 }

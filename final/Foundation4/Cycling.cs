@@ -1,11 +1,10 @@
-class Cycling : Activity
+public class Cycling : Activity
 {
     private double _speed;
 
-    public Cycling(string date, int lengthInMinutes, double speed)
-        : base(date, lengthInMinutes)
+    public Cycling(double lengthInMinutes, double speed) : base(lengthInMinutes)
     {
-        this._speed = speed;
+        _speed = speed;
     }
 
     public override double GetSpeed()
@@ -13,8 +12,13 @@ class Cycling : Activity
         return _speed;
     }
 
+    public override double GetPace()
+    {
+        return GetTime() / GetDistance();
+    }
+
     public override double GetDistance()
     {
-        return (_speed * GetLenthInMinutes()) / 60;
+        return GetSpeed() * (GetTime() / 60);
     }
 }

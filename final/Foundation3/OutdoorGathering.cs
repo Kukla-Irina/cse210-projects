@@ -2,14 +2,19 @@ class OutdoorGathering : Event
 {
     private string _weatherForecast;
 
-    public OutdoorGathering(string title, string description, string date, string time, Address address, string weatherForecast)
-        : base(title, description, date, time, address)
+    public OutdoorGathering(string type, string title, string description, string date, string time, Address address, string weatherForecast)
+        : base(type, title, description, date, time, address)
     {
-        this._weatherForecast = weatherForecast;
+        _weatherForecast = weatherForecast;
     }
 
-    public string GetFullDetails()
+    public void GetFullDetails()
     {
-        return $"{base.GetStandardDetails()}\nType: Outdoor Gathering\nWeather Forecast: {_weatherForecast}";
+        Console.WriteLine($"Title: {_title}");
+        Console.WriteLine($"Description: {_description}");
+        Console.WriteLine($"Date: {_date}");
+        Console.WriteLine($"Time: {_time}");
+        Console.WriteLine($"Adress: {_address.GetFullAddress()}");
+        Console.WriteLine($"Weather: {_weatherForecast}");
     }
 }

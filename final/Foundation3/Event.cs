@@ -1,27 +1,35 @@
 class Event
 {
-    private string _title;
-    private string _description;
-    private string _date;
-    private string _time;
-    private Address _address;
+    protected string _type;
+    protected string _title;
+    protected string _description;
+    protected string _date;
+    protected string _time;
+    protected Address _address;
 
-    public Event(string title, string description, string date, string time, Address address)
+    public Event(string type, string title, string description, string date, string time, Address address)
     {
-        this._title = title;
-        this._description = description;
-        this._date = date;
-        this._time = time;
-        this._address = address;
+        _type = type;
+        _title = title;
+        _description = description;
+        _date = date;
+        _time = time;
+        _address = address;
     }
 
-    public string GetStandardDetails()
+    public void GetStandardDetails()
     {
-        return $"Title: {_title}\nDescription: {_description}\nDate: {_date}\nTime: {_time}\nAddress: {_address.GetFullAddress()}";
+        Console.WriteLine($"Title: {_title}");
+        Console.WriteLine($"Description: {_description}");
+        Console.WriteLine($"Date: {_date}");
+        Console.WriteLine($"Time: {_time}");
+        Console.WriteLine($"Adress: {_address.GetFullAddress()}");
     }
 
-    public string GetShortDescription()
+    public void GetShortDescription()
     {
-        return $"Type: {GetType().Name}\nTitle: {_title}\nDate: {_date}";
+        Console.WriteLine($"Type of Event: {_type}");
+        Console.WriteLine($"Title: {_title}");
+        Console.WriteLine($"Date: {_date}");
     }
 }

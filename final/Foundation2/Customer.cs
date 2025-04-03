@@ -5,8 +5,8 @@ class Customer
 
     public Customer(string name, Address address)
     {
-        this._name = name;
-        this._address = address;
+        _name = name;
+        _address = address;
     }
 
     public string GetName()
@@ -21,6 +21,6 @@ class Customer
 
     public bool IsInUSA()
     {
-        return _address.IsInUSA();
+        return _address.IsInUsa();
     }
 }

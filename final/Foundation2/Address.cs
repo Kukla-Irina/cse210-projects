@@ -7,15 +7,22 @@ class Address
 
     public Address(string street, string city, string state, string country)
     {
-        this._street = street;
-        this._city = city;
-        this._state = state;
-        this._country = country;
+        _street = street;
+        _city = city;
+        _state = state;
+        _country = country;
     }
 
-    public bool IsInUSA()
+    public bool IsInUsa()
     {
-        return _country == "USA";
+        if (_country == "USA")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public string GetFullAddress()
